@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавить родителей</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+</head>
+<body>
+
+<header th:insert="/header :: header"></header>
+
+<div>
+    <h1>Добавить родителей</h1>
+    <div th:if="${isError}" role="alert">
+        [[${errorMessage}]]
+    </div>
+    <form action="/parents/add" method="post">
+        <input type="text" name="mother" placeholder="Имя мамы"><br>
+        <input type="text" name="father" placeholder="Имя папы"><br>
+        <select name="addressId">
+            <option value="-1" selected>Нет данных</option>
+            <option th:each="address : ${addresses}" th:value="${address.getId()}">[[${address.getAddress()}]]</option>
+        </select><br>
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/><br>
+        <button type="submit" class="btn btn-success">Добавить родителей</button>
+    </form>
+</div>
+
+</body>
+</html>
