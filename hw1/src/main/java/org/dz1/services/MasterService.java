@@ -22,11 +22,14 @@ public class MasterService {
         }
     }
 
-    public List<Object> get(String strClass, Class objectClass) {
-        try (Session session = HibernateConfig.getSessionFactory().openSession()) {
-            return session.createQuery("from " + strClass, objectClass).list();
-        }
-    }
+//    public <T> List<T> getListObjects() {
+//        try (Session session = HibernateConfig.getSessionFactory().openSession()) {
+//
+//            List<T> rez = session.createQuery("from " + T, T).list();
+//            return rez;
+//
+//        }
+//    }
 
 //    public Object getById(int id, Object obj) {
 //        return this.getSchools().stream().filter(x -> x.getId() == id).findFirst().get();

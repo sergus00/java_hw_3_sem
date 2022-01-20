@@ -11,7 +11,7 @@ import org.hibernate.service.ServiceRegistry;
 import org.dz1.models.*;
 
 public class HibernateConfig {
-    private static SessionFactory sessionFactory;
+    private    static SessionFactory sessionFactory;
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {

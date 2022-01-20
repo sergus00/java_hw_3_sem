@@ -1,11 +1,11 @@
 package org.dz1.services;
 
-import java.util.List;
-
-import org.dz1.models.Parents;
+import org.apache.commons.cli.CommandLine;
 import org.dz1.configs.HibernateConfig;
+import org.dz1.models.Parents;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+
+import java.util.List;
 
 public class ParentsService extends MasterService {
     public void saveParents(Parents parents) {
@@ -23,10 +23,27 @@ public class ParentsService extends MasterService {
     }
 
 //    public List<Parents> getParents() {
-//        return get("Parents", Parents.class);
+//        return getListObjects();
 //    }
 
     public Parents getById(int id) {
-        return this.getParents().stream().filter(x -> x.getId() == id).findFirst().get();
+        return this.getParents().stream().filter(x -> x.getId() == id).findFirst().get(); // Какашка
+    }
+
+    public void AddParents(CommandLine lineArgs) {
+        Parents parents = new Parents();
+        if (lineArgs.hasOption('m')) parents.setMother(lineArgs.getOptionValue('m'));
+        if (lineArgs.hasOption('f')) parents.setFather(lineArgs.getOptionValue('f'));
+        parents.save();
+        System.out.println("Добавлены родители " + parents.getMother() + " " + parents.getFather() +
+                ", Id " + parents.getId());
+    }
+
+    public void ChangeAddress(String[] lineArgs) {
+        Parents parents = this.getById(Integer.parseInt(lineArgs[0]));
+        parents.setAddress(new AddressService().getById(Integer.parseInt(lineArgs[1])));
+        parents.update();
+        System.out.println("Адрес родителей " + parents.getFather() + " и " + parents.getMother() +
+                " с Id " + parents.getId() + " изменён на " + parents.getAddress().getAddress());
     }
 }
