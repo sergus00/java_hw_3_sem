@@ -1,6 +1,6 @@
 package org.dz1.services;
 
-import org.dz1.models.Address;
+import org.dz1.entities.Address;
 import org.dz1.configs.HibernateConfig;
 import org.hibernate.Session;
 

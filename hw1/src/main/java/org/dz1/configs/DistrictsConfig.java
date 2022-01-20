@@ -1,8 +1,8 @@
 package org.dz1.configs;
 
-import org.dz1.models.Address;
-import org.dz1.models.District;
-import org.dz1.models.School;
+import org.dz1.entities.Address;
+import org.dz1.entities.District;
+import org.dz1.entities.School;
 import org.dz1.services.AddressService;
 
 public class DistrictsConfig {

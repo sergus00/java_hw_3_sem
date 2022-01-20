@@ -1,9 +1,9 @@
 package org.dz1.services;
 
 import org.dz1.configs.HibernateConfig;
-import org.dz1.models.Child;
-import org.dz1.models.Parents;
-import org.dz1.models.School;
+import org.dz1.entities.Child;
+import org.dz1.entities.Parents;
+import org.dz1.entities.School;
 import org.hibernate.Session;
 
 import java.util.List;

@@ -2,7 +2,7 @@ package org.dz1.services;
 
 import org.apache.commons.cli.CommandLine;
 import org.dz1.configs.HibernateConfig;
-import org.dz1.models.Parents;
+import org.dz1.entities.Parents;
 import org.hibernate.Session;
 
 import java.util.List;

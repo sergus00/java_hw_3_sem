@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
-import org.dz1.models.*;
+import org.dz1.entities.*;
 
 public class HibernateConfig {
     private static SessionFactory sessionFactory;
