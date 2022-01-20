@@ -13,10 +13,18 @@ public class District {
     @GeneratedValue
     private int id;
     @OneToMany(mappedBy = "district", cascade = CascadeType.ALL)
-    private List<Address> addresses = new ArrayList<Address>();
+    private List<Address> addresses = new ArrayList<>();
 
     public void Save() {
         new DistrictService().saveDistrict(this);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public List<Address> getAddresses() {
